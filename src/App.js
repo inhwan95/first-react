@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import { Children, useState } from 'react';
 import './App.css';
 import Box from './component/Box';
 
@@ -24,21 +24,22 @@ const choice = {
   }
 }
 function App() {
+  console.log(choice);
+  let [userSelect, setUserSelect] = useState(null);   // 변하는 State값은 let으로 처리
 
   const play = (userChoice) => {
-    console.log("선택됨!", userChoice);
-
-  }
+    setUserSelect(choice[userChoice]);
+  };
   return (
     <div>
       <div className='main gap'>
-        <Box title="you" />
-        <Box title="computer" />
+        <Box title="you" item={userSelect} />
+        <Box title="computer" item={userSelect} />
       </div>
       <div className='main'>
-        <button onClick={() => play("Scissors")}>가위</button>
-        <button onClick={() => play("Rock")}>바위</button>
-        <button onClick={() => play("Paper")}>보</button>
+        <button onClick={() => play("scissors")}>가위</button>
+        <button onClick={() => play("rock")}>바위</button>
+        <button onClick={() => play("paper")}>보</button>
       </div>
     </div>
   );
