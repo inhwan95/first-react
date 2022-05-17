@@ -47,6 +47,7 @@ function App() {
   };
 
   const judgement = (user, computer) => {
+    console.log("ㅋㅓ미ㅅ하고싶다.")
     if (user.name === computer.name)
       return "tie";
     else if (user.name === "Rock")
